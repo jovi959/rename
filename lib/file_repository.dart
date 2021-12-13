@@ -228,7 +228,7 @@ class FileRepository {
       return null;
     }
     for (var i = 0; i < contentLineByLine!.length; i++) {
-      if (contentLineByLine[i].contains('<key>CFBundleName</key>')) {
+      if (contentLineByLine[i].contains('<key>CFBundleDisplayName</key>')) {
         contentLineByLine[i + 1] = '\t<string>$appName</string>\r';
         break;
       }
@@ -349,7 +349,7 @@ class FileRepository {
       filePath: iosInfoPlistPath,
     ) as FutureOr<List<dynamic>>);
     for (var i = 0; i < contentLineByLine.length; i++) {
-      if (contentLineByLine[i].contains('<key>CFBundleName</key>')) {
+      if (contentLineByLine[i].contains('<key>CFBundleDisplayName</key>')) {
         return (contentLineByLine[i + 1] as String).trim().substring(5, 5);
       }
     }
