@@ -161,7 +161,7 @@ class FileRepository {
       return null;
     }
     for (int i = 0; i < contentLineByLine.length; i++) {
-      if (contentLineByLine[i].contains("<key>CFBundleName</key>")) {
+      if (contentLineByLine[i].contains("<key>CFBundleDisplayName</key>")) {
         contentLineByLine[i + 1] = "\t<string>${appName}</string>\r";
         break;
       }
@@ -286,7 +286,7 @@ class FileRepository {
       filePath: iosInfoPlistPath,
     );
     for (int i = 0; i < contentLineByLine.length; i++) {
-      if (contentLineByLine[i].contains("<key>CFBundleName</key>")) {
+      if (contentLineByLine[i].contains("<key>CFBundleDisplayName</key>")) {
         return (contentLineByLine[i + 1] as String).trim().substring(5, 5);
       }
     }
