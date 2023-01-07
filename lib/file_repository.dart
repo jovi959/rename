@@ -78,12 +78,12 @@ class FileRepository {
 
   Future<File> replaceIosBundleIdInfoPlist({String oldBundleId, String newBundleID}) async {
     List contentLineByLine = await readFileAsLineByline(
-      filePath: iosProjectPbxprojPath,
+      filePath: iosInfoPlistPath,
     );
     if (checkFileExists(contentLineByLine)) {
       logger.w('''
       Ios BundleId could not be replaced because,
-      The related file could not be found in that path:  ${iosProjectPbxprojPath}
+      The related file could not be found in that path:  ${iosInfoPlistPath}
       ''');
       return null;
     }
@@ -92,8 +92,8 @@ class FileRepository {
         contentLineByLine[i] = contentLineByLine[i].toString().replaceAll(oldBundleId, newBundleID);
       }
     }
-    var writtenFile = await writeFile(
-      filePath: iosProjectPbxprojPath,
+    File writtenFile = await writeFile(
+      filePath: iosInfoPlistPath,
       content: contentLineByLine.join('\n'),
     );
     logger.i('IOS BundleIdentifier replaced successfully to : $newBundleID');

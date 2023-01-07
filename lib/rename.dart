@@ -42,7 +42,6 @@ Future changeBundleId(String bundleId, Iterable<Platform> platforms) async {
 }
 
 Future replaceBundleId(String oldBundleId,String newBundleId, Iterable<Platform> platforms) async {
-
   await fileRepository.replaceIosBundleIdInfoPlist(oldBundleId: oldBundleId,newBundleID: newBundleId);
 }
 
