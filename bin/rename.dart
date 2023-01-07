@@ -21,8 +21,8 @@ final argParser = ArgParser()
       help: 'Set which platforms to target.')
   ..addOption(appname, abbr: 'a', help: 'Sets the name of the app.')
   ..addOption(bundleId, abbr: 'b', help: 'Sets the bundle id.')
-  ..addOption(oldBundleId, abbr: 'ob', help: 'Sets the old bundle id.')
-  ..addOption(newBundleId, abbr: 'nb', help: 'Sets the new bundle id.')
+  ..addOption(oldBundleId, abbr: 'o', help: 'Sets the old bundle id.')
+  ..addOption(newBundleId, abbr: 'n', help: 'Sets the new bundle id.')
   ..addOption(launcherIcon, abbr: 'l', help: 'Sets the launcher icon.')
   ..addFlag(help, abbr: 'h', help: 'Shows help.', negatable: false);
 
