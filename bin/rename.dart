@@ -9,6 +9,8 @@ const linux = 'linux';
 const target = 'target';
 const appname = 'appname';
 const bundleId = 'bundleId';
+const oldBundleId = 'oldbundleId';
+const newBundleId = 'newbundleId';
 const launcherIcon = 'launcherIcon';
 const help = 'help';
 
@@ -19,6 +21,8 @@ final argParser = ArgParser()
       help: 'Set which platforms to target.')
   ..addOption(appname, abbr: 'a', help: 'Sets the name of the app.')
   ..addOption(bundleId, abbr: 'b', help: 'Sets the bundle id.')
+  ..addOption(oldBundleId, abbr: 'ob', help: 'Sets the old bundle id.')
+  ..addOption(newBundleId, abbr: 'nb', help: 'Sets the new bundle id.')
   ..addOption(launcherIcon, abbr: 'l', help: 'Sets the launcher icon.')
   ..addFlag(help, abbr: 'h', help: 'Shows help.', negatable: false);
 
@@ -44,6 +48,10 @@ void main(List<String> arguments) async {
     if (results[bundleId] != null) {
       await rename.changeBundleId(results[bundleId], platforms);
     }
+    if (results[oldBundleId] != null && results[newBundleId] != null ) {
+      await rename.replaceBundleId(results[oldBundleId],results[newBundleId], platforms);
+    }
+
     if (results[launcherIcon] != null) {
       await rename.changeLauncherIcon(results[launcherIcon]);
     }
